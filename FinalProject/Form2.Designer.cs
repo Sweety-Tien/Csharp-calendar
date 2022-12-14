@@ -50,7 +50,7 @@
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(85, 45);
             this.button1.TabIndex = 0;
-            this.button1.Text = "儲存1";
+            this.button1.Text = "儲存";
             this.button1.UseVisualStyleBackColor = false;
             // 
             // button2
