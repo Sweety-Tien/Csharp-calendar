@@ -607,11 +607,14 @@
             // 
             // monthCalendar
             // 
+            this.monthCalendar.BackColor = System.Drawing.SystemColors.HotTrack;
+            this.monthCalendar.ForeColor = System.Drawing.SystemColors.MenuText;
             this.monthCalendar.Location = new System.Drawing.Point(26, 125);
             this.monthCalendar.Name = "monthCalendar";
             this.monthCalendar.TabIndex = 57;
+            this.monthCalendar.TitleBackColor = System.Drawing.SystemColors.MenuHighlight;
             this.monthCalendar.TodayDate = new System.DateTime(2022, 12, 23, 0, 0, 0, 0);
-            this.monthCalendar.DateChanged += new System.Windows.Forms.DateRangeEventHandler(this.monthCalendar_DateChanged);
+            this.monthCalendar.TrailingForeColor = System.Drawing.SystemColors.ActiveCaption;
             this.monthCalendar.DateSelected += new System.Windows.Forms.DateRangeEventHandler(this.monthCalendar_DateSelected);
             // 
             // labelToDo
@@ -630,11 +633,11 @@
             this.checkBoxToDo.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.checkBoxToDo.FormattingEnabled = true;
             this.checkBoxToDo.Items.AddRange(new object[] {
-            "1",
-            "2",
-            "3",
-            "4",
-            "5"});
+            "1.",
+            "2.",
+            "3.",
+            "4.",
+            "5."});
             this.checkBoxToDo.Location = new System.Drawing.Point(26, 423);
             this.checkBoxToDo.Name = "checkBoxToDo";
             this.checkBoxToDo.Size = new System.Drawing.Size(220, 148);

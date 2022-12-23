@@ -15,7 +15,7 @@ namespace FinalProject
     {
         public List<TodoItem> TodoList;
         Form2 f2;
- 
+
         public 行事曆()
         {
             InitializeComponent();
@@ -32,25 +32,26 @@ namespace FinalProject
         private void 行事曆_Load(object sender, EventArgs e)
         {
             labelDate.Text = monthCalendar.TodayDate.ToLongDateString();
+            Display();
         }
 
 
 
         private void tabMonth_Click(object sender, EventArgs e)
         {
-            
+
         }
 
         private void tab_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if(tab.SelectedIndex == 0)
+            if (tab.SelectedIndex == 0)
             {
-                
+
 
             }
 
             if (tab.SelectedIndex == 1)
-            {         
+            {
 
             }
 
@@ -60,11 +61,6 @@ namespace FinalProject
         private void btnAdd_Click(object sender, EventArgs e)
         {
             f2.ShowDialog();
-        }
-
-        private void monthCalendar_DateChanged(object sender, DateRangeEventArgs e)
-        {
-            
         }
 
         private void monthCalendar_DateSelected(object sender, DateRangeEventArgs e)
@@ -84,6 +80,22 @@ namespace FinalProject
             var date = monthCalendar.SelectionRange.Start;
             monthCalendar.SetDate(date.AddDays(-1));
             labelDate.Text = monthCalendar.SelectionStart.ToLongDateString();
+        }
+        public void Display()
+        {
+            txtDay.Text = "";
+            for (int i = 1; i < 13; i++)
+            {
+                string str = "上午" + i + "點";
+                str = str.PadRight(110, '-');
+                txtDay.Text += str + "\r\n\r\n";
+            }
+            for (int i = 1; i < 13; i++)
+            {
+                string str = "下午" + i + "點";
+                str = str.PadRight(110, '-');
+                txtDay.Text += str + "\r\n\r\n";
+            }
         }
     }
 }
