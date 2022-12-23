@@ -63,6 +63,7 @@
             this.btnCancel.TabIndex = 1;
             this.btnCancel.Text = "取消";
             this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // txtAdd
             // 
@@ -74,6 +75,7 @@
             this.txtAdd.Size = new System.Drawing.Size(507, 60);
             this.txtAdd.TabIndex = 2;
             this.txtAdd.Text = "新增事項";
+            this.txtAdd.TextChanged += new System.EventHandler(this.txtAdd_TextChanged);
             // 
             // btnActivity
             // 
@@ -84,6 +86,7 @@
             this.btnActivity.TabIndex = 3;
             this.btnActivity.Text = "活動";
             this.btnActivity.UseVisualStyleBackColor = true;
+            this.btnActivity.Click += new System.EventHandler(this.btnActivity_Click);
             // 
             // btnWork
             // 
@@ -94,6 +97,7 @@
             this.btnWork.TabIndex = 4;
             this.btnWork.Text = "工作";
             this.btnWork.UseVisualStyleBackColor = true;
+            this.btnWork.Click += new System.EventHandler(this.btnWork_Click);
             // 
             // btnRemind
             // 
@@ -104,6 +108,7 @@
             this.btnRemind.TabIndex = 5;
             this.btnRemind.Text = "提醒";
             this.btnRemind.UseVisualStyleBackColor = true;
+            this.btnRemind.Click += new System.EventHandler(this.btnRemind_Click);
             // 
             // btnParty
             // 
@@ -114,6 +119,7 @@
             this.btnParty.TabIndex = 6;
             this.btnParty.Text = "聚會";
             this.btnParty.UseVisualStyleBackColor = true;
+            this.btnParty.Click += new System.EventHandler(this.btnParty_Click);
             // 
             // btnOther
             // 
@@ -124,6 +130,7 @@
             this.btnOther.TabIndex = 7;
             this.btnOther.Text = "其他";
             this.btnOther.UseVisualStyleBackColor = true;
+            this.btnOther.Click += new System.EventHandler(this.btnOther_Click);
             // 
             // dateTimePicker1
             // 
@@ -132,6 +139,7 @@
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(507, 29);
             this.dateTimePicker1.TabIndex = 12;
+            this.dateTimePicker1.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
             // 
             // txtAddPlace
             // 
@@ -189,6 +197,7 @@
             this.Controls.Add(this.btnSave);
             this.Name = "Form2";
             this.Text = "新增事項";
+            this.Load += new System.EventHandler(this.Form2_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

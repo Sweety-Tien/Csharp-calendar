@@ -19,7 +19,7 @@ namespace FinalProject
         }
 
         Form2 f2 = new Form2(); //產生Form2的物件，才可以使用它所提供的Method
-
+        public List<TodoItem> TodoList = new List<TodoItem>();
 
         private void vScrollBar1_Scroll(object sender, ScrollEventArgs e)
         {
@@ -56,8 +56,7 @@ namespace FinalProject
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-
-            f2.Show(this);
+            f2.ShowDialog();
         }
     }
 }
