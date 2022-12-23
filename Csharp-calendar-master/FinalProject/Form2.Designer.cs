@@ -145,20 +145,26 @@
             // txtAddPlace
             // 
             this.txtAddPlace.Font = new System.Drawing.Font("新細明體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.txtAddPlace.ForeColor = System.Drawing.SystemColors.ScrollBar;
             this.txtAddPlace.Location = new System.Drawing.Point(178, 318);
             this.txtAddPlace.Multiline = true;
             this.txtAddPlace.Name = "txtAddPlace";
             this.txtAddPlace.Size = new System.Drawing.Size(383, 50);
             this.txtAddPlace.TabIndex = 13;
+            this.txtAddPlace.Text = "無";
+            this.txtAddPlace.TextChanged += new System.EventHandler(this.txtAddPlace_TextChanged);
             // 
             // txtAddContent
             // 
             this.txtAddContent.Font = new System.Drawing.Font("新細明體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.txtAddContent.ForeColor = System.Drawing.SystemColors.ScrollBar;
             this.txtAddContent.Location = new System.Drawing.Point(178, 395);
             this.txtAddContent.Multiline = true;
             this.txtAddContent.Name = "txtAddContent";
             this.txtAddContent.Size = new System.Drawing.Size(383, 50);
             this.txtAddContent.TabIndex = 14;
+            this.txtAddContent.Text = "無";
+            this.txtAddContent.TextChanged += new System.EventHandler(this.txtAddContent_TextChanged);
             // 
             // labelAddPlace
             // 

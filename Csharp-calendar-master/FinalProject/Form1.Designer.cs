@@ -609,7 +609,7 @@
             // 
             this.monthCalendar.BackColor = System.Drawing.SystemColors.HotTrack;
             this.monthCalendar.ForeColor = System.Drawing.SystemColors.MenuText;
-            this.monthCalendar.Location = new System.Drawing.Point(26, 125);
+            this.monthCalendar.Location = new System.Drawing.Point(26, 153);
             this.monthCalendar.Name = "monthCalendar";
             this.monthCalendar.TabIndex = 57;
             this.monthCalendar.TitleBackColor = System.Drawing.SystemColors.MenuHighlight;
@@ -622,7 +622,7 @@
             this.labelToDo.AutoSize = true;
             this.labelToDo.BackColor = System.Drawing.SystemColors.Menu;
             this.labelToDo.Font = new System.Drawing.Font("新細明體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.labelToDo.Location = new System.Drawing.Point(22, 387);
+            this.labelToDo.Location = new System.Drawing.Point(22, 368);
             this.labelToDo.Name = "labelToDo";
             this.labelToDo.Size = new System.Drawing.Size(110, 24);
             this.labelToDo.TabIndex = 56;
@@ -638,9 +638,9 @@
             "3.",
             "4.",
             "5."});
-            this.checkBoxToDo.Location = new System.Drawing.Point(26, 423);
+            this.checkBoxToDo.Location = new System.Drawing.Point(26, 399);
             this.checkBoxToDo.Name = "checkBoxToDo";
-            this.checkBoxToDo.Size = new System.Drawing.Size(220, 148);
+            this.checkBoxToDo.Size = new System.Drawing.Size(220, 172);
             this.checkBoxToDo.TabIndex = 55;
             // 
             // btnAdd

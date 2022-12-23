@@ -25,6 +25,8 @@ namespace FinalProject
             btnColor();
             txtAdd.Text = "新增事項";
             txtAdd.ForeColor = Color.LightGray;
+            txtAddPlace.ForeColor = Color.LightGray;
+            txtAddContent.ForeColor = Color.LightGray;
             this.ActiveControl = txtAdd;
             dateTimePicker1.Format = DateTimePickerFormat.Time;
         }
@@ -69,10 +71,6 @@ namespace FinalProject
             this.Close();
         }
 
-        private void txtAdd_TextChanged(object sender, EventArgs e)
-        {
-            txtAdd.ForeColor = Color.Black;
-        }
         void btnColor()
         {
             btnActivity.BackColor = Color.White;
@@ -95,6 +93,20 @@ namespace FinalProject
                 TodoList.Add(todoItem);
                 this.Close();
             }
+        }
+        private void txtAdd_TextChanged(object sender, EventArgs e)
+        {
+            txtAdd.ForeColor = Color.Black;
+        }
+
+        private void txtAddPlace_TextChanged(object sender, EventArgs e)
+        {
+            txtAddPlace.ForeColor = Color.Black;
+        }
+
+        private void txtAddContent_TextChanged(object sender, EventArgs e)
+        {
+            txtAddContent.ForeColor = Color.Black;
         }
     }
 }

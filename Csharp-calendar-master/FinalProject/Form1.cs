@@ -87,19 +87,26 @@ namespace FinalProject
         }
         public void Display()
         {
+            checkBoxToDo.Items.Clear();
+            foreach(var item in TodoList)
+            {
+                checkBoxToDo.Items.Add(item.Title, false);
+            }
+            checkBoxToDo.Sorted = true;
             txtDay.Text = "";
             for (int i = 1; i < 13; i++)
             {
-                string str = "上午" + i + "點";             
+                string str = "上午" + i + "點";
                 str = str.PadRight(110, '-');
                 txtDay.Text += str + "\r\n\r\n";
-                foreach(var item in TodoList)
+                foreach (var item in TodoList)
                 {
                     string[] Time = item.Date.ToShortTimeString().Split(' ');
                     string[] Hour = Time[1].Split(':');
-                    if (item.Date == monthCalendar.SelectionRange.Start && Time[0]== "上午"&& Hour[0] == i.ToString())
+                    if (item.Date == monthCalendar.SelectionRange.Start && Time[0] == "上午" && Hour[0] == i.ToString())
                     {
-                        txtDay.Text += item.Date.ToShortTimeString() + "\r\n";
+                        txtDay.Text += "     ";
+                        txtDay.Text += item.Date.ToShortTimeString() +"  標題:"+ item.Title + "  種類:" + item.Type + "  地點:" + item.Place + "  說明:" + item.Descripetion + "\r\n";
                     }
                 }
                 txtDay.Text += "\r\n";
@@ -115,7 +122,8 @@ namespace FinalProject
                     string[] Hour = Time[1].Split(':');
                     if (item.Date == monthCalendar.SelectionRange.Start && Time[0] == "下午" && Hour[0] == i.ToString())
                     {
-                        txtDay.Text += item.Date.ToShortTimeString() + "\r\n";
+                        txtDay.Text += "     ";
+                        txtDay.Text += item.Date.ToShortTimeString() + "  標題:" + item.Title + "  種類:" + item.Type + "  地點:" + item.Place + "  說明:" + item.Descripetion + "\r\n";
                     }
                 }
                 txtDay.Text += "\r\n";
