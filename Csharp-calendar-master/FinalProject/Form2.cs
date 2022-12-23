@@ -12,9 +12,11 @@ namespace FinalProject
 {
     public partial class Form2 : Form
     {
-        public Form2()
+        public List<TodoItem> TodoList;
+        public Form2(List<TodoItem> todoList)
         {
             InitializeComponent();
+            TodoList = todoList;
         }
         private void Form2_Load(object sender, EventArgs e)
         {
@@ -65,6 +67,12 @@ namespace FinalProject
         void btnColor()
         {
 
+        }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            var todoItem = new TodoItem("Hello", "Test", 2022, 12, 23, EventType.Party);
+            TodoList.Add(todoItem);
         }
     }
 }

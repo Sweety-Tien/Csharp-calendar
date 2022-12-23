@@ -54,6 +54,7 @@
             this.btnSave.TabIndex = 0;
             this.btnSave.Text = "儲存";
             this.btnSave.UseVisualStyleBackColor = false;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // btnCancel
             // 
