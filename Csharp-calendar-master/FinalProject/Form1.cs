@@ -31,7 +31,7 @@ namespace FinalProject
 
         private void 行事曆_Load(object sender, EventArgs e)
         {
-
+            labelDate.Text = monthCalendar.TodayDate.ToLongDateString();
         }
 
 
@@ -60,6 +60,16 @@ namespace FinalProject
         private void btnAdd_Click(object sender, EventArgs e)
         {
             f2.ShowDialog();
+        }
+
+        private void monthCalendar_DateChanged(object sender, DateRangeEventArgs e)
+        {
+            
+        }
+
+        private void monthCalendar_DateSelected(object sender, DateRangeEventArgs e)
+        {
+            labelDate.Text = monthCalendar.SelectionStart.ToLongDateString();
         }
     }
 }

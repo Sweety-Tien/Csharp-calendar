@@ -88,8 +88,17 @@ namespace FinalProject
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            var todoItem = new TodoItem(txtAdd.Text,txtAddPlace.Text, txtAddContent.Text, dateTimePicker1.Value, EventType.Party);
-            TodoList.Add(todoItem);
+            if (txtAdd.Text == "" || txtAdd.Text == "新增事項")
+            {
+                MessageBox.Show("標題不可為空");
+                this.ActiveControl = txtAdd;
+            }
+            else
+            {
+                var todoItem = new TodoItem(txtAdd.Text, txtAddPlace.Text, txtAddContent.Text, dateTimePicker1.Value, SelectedType);
+                TodoList.Add(todoItem);
+                this.Close();
+            }
         }
     }
 }

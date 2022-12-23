@@ -544,6 +544,7 @@
             // 
             // tabDay
             // 
+            this.tabDay.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("tabDay.BackgroundImage")));
             this.tabDay.Controls.Add(this.txtDay);
             this.tabDay.Controls.Add(this.btnRight);
             this.tabDay.Controls.Add(this.btnLeft);
@@ -607,7 +608,9 @@
             this.monthCalendar.Location = new System.Drawing.Point(26, 125);
             this.monthCalendar.Name = "monthCalendar";
             this.monthCalendar.TabIndex = 57;
-            this.monthCalendar.TodayDate = new System.DateTime(2022, 12, 16, 0, 0, 0, 0);
+            this.monthCalendar.TodayDate = new System.DateTime(2022, 12, 23, 0, 0, 0, 0);
+            this.monthCalendar.DateChanged += new System.Windows.Forms.DateRangeEventHandler(this.monthCalendar_DateChanged);
+            this.monthCalendar.DateSelected += new System.Windows.Forms.DateRangeEventHandler(this.monthCalendar_DateSelected);
             // 
             // labelToDo
             // 
