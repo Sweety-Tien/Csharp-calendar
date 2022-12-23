@@ -632,7 +632,7 @@
             "5"});
             this.checkBoxToDo.Location = new System.Drawing.Point(26, 423);
             this.checkBoxToDo.Name = "checkBoxToDo";
-            this.checkBoxToDo.Size = new System.Drawing.Size(220, 76);
+            this.checkBoxToDo.Size = new System.Drawing.Size(220, 148);
             this.checkBoxToDo.TabIndex = 55;
             // 
             // btnAdd

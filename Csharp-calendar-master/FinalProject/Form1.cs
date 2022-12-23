@@ -13,12 +13,15 @@ namespace FinalProject
 {
     public partial class 行事曆 : Form
     {
+        public List<TodoItem> TodoList;
+        Form2 f2;
+ 
         public 行事曆()
         {
             InitializeComponent();
+            TodoList = new List<TodoItem>();
+            f2 = new Form2(TodoList); //產生Form2的物件，才可以使用它所提供的Method
         }
-
-        Form2 f2 = new Form2(); //產生Form2的物件，才可以使用它所提供的Method
 
 
         private void vScrollBar1_Scroll(object sender, ScrollEventArgs e)
@@ -56,8 +59,7 @@ namespace FinalProject
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-
-            f2.Show(this);
+            f2.ShowDialog();
         }
     }
 }
