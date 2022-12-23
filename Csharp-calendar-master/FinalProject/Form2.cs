@@ -78,16 +78,16 @@ namespace FinalProject
         }
         void btnColor()
         {
-            btnActivity.BackColor = Color.LightBlue;
-            btnWork.BackColor = Color.LightBlue;
-            btnRemind.BackColor = Color.LightBlue;
-            btnParty.BackColor = Color.LightBlue;
-            btnOther.BackColor = Color.LightBlue;
+            btnActivity.BackColor = Color.White;
+            btnWork.BackColor = Color.White;
+            btnRemind.BackColor = Color.White;
+            btnParty.BackColor = Color.White;
+            btnOther.BackColor = Color.White;
         }
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            var todoItem = new TodoItem("Hello", "Test", 2022, 12, 23, EventType.Party);
+            var todoItem = new TodoItem(txtAdd.Text, txtAddContent.Text, 2022, 12, 23, EventType.Party);
             TodoList.Add(todoItem);
         }
     }
