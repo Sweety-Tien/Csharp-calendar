@@ -136,14 +136,15 @@
             // dateTimePicker1
             // 
             this.dateTimePicker1.CalendarFont = new System.Drawing.Font("新細明體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.dateTimePicker1.Font = new System.Drawing.Font("新細明體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.dateTimePicker1.Location = new System.Drawing.Point(54, 231);
             this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(507, 29);
+            this.dateTimePicker1.Size = new System.Drawing.Size(507, 36);
             this.dateTimePicker1.TabIndex = 12;
             // 
             // txtAddPlace
             // 
-            this.txtAddPlace.Font = new System.Drawing.Font("新細明體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.txtAddPlace.Font = new System.Drawing.Font("新細明體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.txtAddPlace.Location = new System.Drawing.Point(178, 318);
             this.txtAddPlace.Multiline = true;
             this.txtAddPlace.Name = "txtAddPlace";
@@ -152,7 +153,7 @@
             // 
             // txtAddContent
             // 
-            this.txtAddContent.Font = new System.Drawing.Font("新細明體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.txtAddContent.Font = new System.Drawing.Font("新細明體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.txtAddContent.Location = new System.Drawing.Point(178, 395);
             this.txtAddContent.Multiline = true;
             this.txtAddContent.Name = "txtAddContent";

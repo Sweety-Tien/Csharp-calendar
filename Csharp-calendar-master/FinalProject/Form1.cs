@@ -20,7 +20,7 @@ namespace FinalProject
         {
             InitializeComponent();
             TodoList = new List<TodoItem>();
-            f2 = new Form2(TodoList); //產生Form2的物件，才可以使用它所提供的Method
+            f2 = new Form2(TodoList);
         }
 
 
@@ -61,11 +61,13 @@ namespace FinalProject
         private void btnAdd_Click(object sender, EventArgs e)
         {
             f2.ShowDialog();
+            Display();
         }
 
         private void monthCalendar_DateSelected(object sender, DateRangeEventArgs e)
         {
             labelDate.Text = monthCalendar.SelectionStart.ToLongDateString();
+            Display();
         }
 
         private void btnRight_Click(object sender, EventArgs e)
@@ -73,6 +75,7 @@ namespace FinalProject
             var date = monthCalendar.SelectionRange.Start;
             monthCalendar.SetDate(date.AddDays(1));
             labelDate.Text = monthCalendar.SelectionStart.ToLongDateString();
+            Display();
         }
 
         private void btnLeft_Click(object sender, EventArgs e)
@@ -80,21 +83,42 @@ namespace FinalProject
             var date = monthCalendar.SelectionRange.Start;
             monthCalendar.SetDate(date.AddDays(-1));
             labelDate.Text = monthCalendar.SelectionStart.ToLongDateString();
+            Display();
         }
         public void Display()
         {
             txtDay.Text = "";
             for (int i = 1; i < 13; i++)
             {
-                string str = "上午" + i + "點";
+                string str = "上午" + i + "點";             
                 str = str.PadRight(110, '-');
                 txtDay.Text += str + "\r\n\r\n";
+                foreach(var item in TodoList)
+                {
+                    string[] Time = item.Date.ToShortTimeString().Split(' ');
+                    string[] Hour = Time[1].Split(':');
+                    if (item.Date == monthCalendar.SelectionRange.Start && Time[0]== "上午"&& Hour[0] == i.ToString())
+                    {
+                        txtDay.Text += item.Date.ToShortTimeString() + "\r\n";
+                    }
+                }
+                txtDay.Text += "\r\n";
             }
             for (int i = 1; i < 13; i++)
             {
                 string str = "下午" + i + "點";
                 str = str.PadRight(110, '-');
                 txtDay.Text += str + "\r\n\r\n";
+                foreach (var item in TodoList)
+                {
+                    string[] Time = item.Date.ToShortTimeString().Split(' ');
+                    string[] Hour = Time[1].Split(':');
+                    if (item.Date == monthCalendar.SelectionRange.Start && Time[0] == "下午" && Hour[0] == i.ToString())
+                    {
+                        txtDay.Text += item.Date.ToShortTimeString() + "\r\n";
+                    }
+                }
+                txtDay.Text += "\r\n";
             }
         }
     }

@@ -26,6 +26,7 @@ namespace FinalProject
             txtAdd.Text = "新增事項";
             txtAdd.ForeColor = Color.LightGray;
             this.ActiveControl = txtAdd;
+            dateTimePicker1.Format = DateTimePickerFormat.Time;
         }
 
         private void btnActivity_Click(object sender, EventArgs e)
