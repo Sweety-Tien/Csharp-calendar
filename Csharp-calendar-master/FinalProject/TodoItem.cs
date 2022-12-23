@@ -23,11 +23,12 @@ namespace FinalProject
         public DateTime Date;
         public EventType Type;
 
-        public TodoItem(string title, string description, int year, int month, int day, EventType eventType)
+        public TodoItem(string title,string place, string description, DateTime date, EventType eventType)
         {
             Title = title;
+            Place = place;
             Descripetion = description;
-            Date = new DateTime(year, month, day);
+            Date = date;
             Type = eventType;
         }
     }

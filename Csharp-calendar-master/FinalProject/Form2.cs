@@ -21,6 +21,7 @@ namespace FinalProject
         }
         private void Form2_Load(object sender, EventArgs e)
         {
+            dateTimePicker1.Value = DateTime.Today;
             btnColor();
             txtAdd.Text = "新增事項";
             txtAdd.ForeColor = Color.LightGray;
@@ -87,7 +88,7 @@ namespace FinalProject
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            var todoItem = new TodoItem(txtAdd.Text, txtAddContent.Text, 2022, 12, 23, EventType.Party);
+            var todoItem = new TodoItem(txtAdd.Text,txtAddPlace.Text, txtAddContent.Text, dateTimePicker1.Value, EventType.Party);
             TodoList.Add(todoItem);
         }
     }
