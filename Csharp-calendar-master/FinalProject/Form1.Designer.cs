@@ -598,10 +598,10 @@
             // labelDate
             // 
             this.labelDate.AutoSize = true;
-            this.labelDate.Font = new System.Drawing.Font("微軟正黑體", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.labelDate.Font = new System.Drawing.Font("微軟正黑體", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.labelDate.Location = new System.Drawing.Point(422, 19);
             this.labelDate.Name = "labelDate";
-            this.labelDate.Size = new System.Drawing.Size(125, 40);
+            this.labelDate.Size = new System.Drawing.Size(158, 50);
             this.labelDate.TabIndex = 58;
             this.labelDate.Text = "2022年";
             // 
@@ -613,7 +613,7 @@
             this.monthCalendar.Name = "monthCalendar";
             this.monthCalendar.TabIndex = 57;
             this.monthCalendar.TitleBackColor = System.Drawing.SystemColors.MenuHighlight;
-            this.monthCalendar.TodayDate = new System.DateTime(2022, 12, 23, 0, 0, 0, 0);
+            this.monthCalendar.TodayDate = new System.DateTime(2022, 12, 24, 0, 0, 0, 0);
             this.monthCalendar.TrailingForeColor = System.Drawing.SystemColors.ActiveCaption;
             this.monthCalendar.DateSelected += new System.Windows.Forms.DateRangeEventHandler(this.monthCalendar_DateSelected);
             // 

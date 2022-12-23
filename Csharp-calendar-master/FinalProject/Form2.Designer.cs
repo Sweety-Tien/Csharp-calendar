@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form2));
             this.btnSave = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.txtAdd = new System.Windows.Forms.TextBox();
@@ -146,10 +147,10 @@
             // 
             this.txtAddPlace.Font = new System.Drawing.Font("新細明體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.txtAddPlace.ForeColor = System.Drawing.SystemColors.ScrollBar;
-            this.txtAddPlace.Location = new System.Drawing.Point(178, 318);
+            this.txtAddPlace.Location = new System.Drawing.Point(178, 322);
             this.txtAddPlace.Multiline = true;
             this.txtAddPlace.Name = "txtAddPlace";
-            this.txtAddPlace.Size = new System.Drawing.Size(383, 50);
+            this.txtAddPlace.Size = new System.Drawing.Size(383, 35);
             this.txtAddPlace.TabIndex = 13;
             this.txtAddPlace.Text = "無";
             this.txtAddPlace.TextChanged += new System.EventHandler(this.txtAddPlace_TextChanged);
@@ -158,10 +159,10 @@
             // 
             this.txtAddContent.Font = new System.Drawing.Font("新細明體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.txtAddContent.ForeColor = System.Drawing.SystemColors.ScrollBar;
-            this.txtAddContent.Location = new System.Drawing.Point(178, 395);
+            this.txtAddContent.Location = new System.Drawing.Point(178, 399);
             this.txtAddContent.Multiline = true;
             this.txtAddContent.Name = "txtAddContent";
-            this.txtAddContent.Size = new System.Drawing.Size(383, 50);
+            this.txtAddContent.Size = new System.Drawing.Size(383, 35);
             this.txtAddContent.TabIndex = 14;
             this.txtAddContent.Text = "無";
             this.txtAddContent.TextChanged += new System.EventHandler(this.txtAddContent_TextChanged);
@@ -190,6 +191,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.Control;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(615, 563);
             this.Controls.Add(this.labelAddContent);
             this.Controls.Add(this.labelAddPlace);
