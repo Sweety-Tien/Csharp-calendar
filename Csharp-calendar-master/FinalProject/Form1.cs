@@ -71,6 +71,20 @@ namespace FinalProject
         {
             labelDate.Text = monthCalendar.SelectionStart.ToLongDateString();
         }
+
+        private void btnRight_Click(object sender, EventArgs e)
+        {
+            var date = monthCalendar.SelectionRange.Start;
+            monthCalendar.SetDate(date.AddDays(1));
+            labelDate.Text = monthCalendar.SelectionStart.ToLongDateString();
+        }
+
+        private void btnLeft_Click(object sender, EventArgs e)
+        {
+            var date = monthCalendar.SelectionRange.Start;
+            monthCalendar.SetDate(date.AddDays(-1));
+            labelDate.Text = monthCalendar.SelectionStart.ToLongDateString();
+        }
     }
 }
 

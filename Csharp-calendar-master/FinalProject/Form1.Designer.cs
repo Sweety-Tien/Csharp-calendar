@@ -582,6 +582,7 @@
             this.btnRight.TabIndex = 60;
             this.btnRight.Text = ">";
             this.btnRight.UseVisualStyleBackColor = true;
+            this.btnRight.Click += new System.EventHandler(this.btnRight_Click);
             // 
             // btnLeft
             // 
@@ -592,6 +593,7 @@
             this.btnLeft.TabIndex = 59;
             this.btnLeft.Text = "<";
             this.btnLeft.UseVisualStyleBackColor = true;
+            this.btnLeft.Click += new System.EventHandler(this.btnLeft_Click);
             // 
             // labelDate
             // 
@@ -599,9 +601,9 @@
             this.labelDate.Font = new System.Drawing.Font("微軟正黑體", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.labelDate.Location = new System.Drawing.Point(422, 19);
             this.labelDate.Name = "labelDate";
-            this.labelDate.Size = new System.Drawing.Size(265, 40);
+            this.labelDate.Size = new System.Drawing.Size(125, 40);
             this.labelDate.TabIndex = 58;
-            this.labelDate.Text = "2022年12月16日";
+            this.labelDate.Text = "2022年";
             // 
             // monthCalendar
             // 

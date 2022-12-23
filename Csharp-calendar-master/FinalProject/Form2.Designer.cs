@@ -140,10 +140,10 @@
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(507, 29);
             this.dateTimePicker1.TabIndex = 12;
-            this.dateTimePicker1.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
             // 
             // txtAddPlace
             // 
+            this.txtAddPlace.Font = new System.Drawing.Font("新細明體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.txtAddPlace.Location = new System.Drawing.Point(178, 318);
             this.txtAddPlace.Multiline = true;
             this.txtAddPlace.Name = "txtAddPlace";
@@ -152,6 +152,7 @@
             // 
             // txtAddContent
             // 
+            this.txtAddContent.Font = new System.Drawing.Font("新細明體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.txtAddContent.Location = new System.Drawing.Point(178, 395);
             this.txtAddContent.Multiline = true;
             this.txtAddContent.Name = "txtAddContent";
@@ -161,20 +162,20 @@
             // labelAddPlace
             // 
             this.labelAddPlace.AutoSize = true;
-            this.labelAddPlace.Font = new System.Drawing.Font("新細明體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.labelAddPlace.Font = new System.Drawing.Font("新細明體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.labelAddPlace.Location = new System.Drawing.Point(66, 333);
             this.labelAddPlace.Name = "labelAddPlace";
-            this.labelAddPlace.Size = new System.Drawing.Size(106, 24);
+            this.labelAddPlace.Size = new System.Drawing.Size(110, 24);
             this.labelAddPlace.TabIndex = 15;
             this.labelAddPlace.Text = "新增地點";
             // 
             // labelAddContent
             // 
             this.labelAddContent.AutoSize = true;
-            this.labelAddContent.Font = new System.Drawing.Font("新細明體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.labelAddContent.Font = new System.Drawing.Font("新細明體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.labelAddContent.Location = new System.Drawing.Point(66, 410);
             this.labelAddContent.Name = "labelAddContent";
-            this.labelAddContent.Size = new System.Drawing.Size(106, 24);
+            this.labelAddContent.Size = new System.Drawing.Size(110, 24);
             this.labelAddContent.TabIndex = 16;
             this.labelAddContent.Text = "新增說明";
             // 

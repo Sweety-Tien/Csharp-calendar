@@ -63,11 +63,6 @@ namespace FinalProject
             SelectedType = EventType.Other;
         }
 
-        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnCancel_Click(object sender, EventArgs e)
         {
             this.Close();
