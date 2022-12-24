@@ -90,7 +90,7 @@ namespace FinalProject
             checkBoxToDo.Items.Clear();
             foreach (var item in TodoList)
             {
-                checkBoxToDo.Items.Add(item.Title+item.Date.ToShortTimeString(), false);
+                checkBoxToDo.Items.Add(item.Title+item.Date.ToShortDateString(), false);
             }
             checkBoxToDo.Sorted = true;
             txtDay.Text = "";
@@ -98,25 +98,14 @@ namespace FinalProject
             for (int i = 0; i < 24; i++)
             {
                 if(i == 0)
-                {
-                    txtDay.Text += "上午12點".PadRight(110, '-')+ "\r\n\r\n";
-                }
+                    txtDay.Text += "上午12點".PadRight(110, '-')+ "\r\n\r\n";                
                 else if(i > 0 && i < 12)
-                {
-                    string str = "上午" + i + "點";
-                    str = str.PadRight(110, '-');
-                    txtDay.Text += str + "\r\n\r\n";
-                }else if(i == 12)
-                {
-                    txtDay.Text += "下午12點".PadRight(110, '-') + "\r\n\r\n";
-                }
+                    txtDay.Text += ("上午" + i + "點").PadRight(110, '-') + "\r\n\r\n";
+                else if(i == 12)
+                    txtDay.Text += "下午12點".PadRight(110, '-') + "\r\n\r\n";               
                 else if(i > 12)
-                {
-                    string str2 = "下午" + (i - 12) + "點";
-                    str2 = str2.PadRight(110, '-');
-                    txtDay.Text += str2 + "\r\n\r\n";
-                }
-
+                    txtDay.Text += ("下午" + (i - 12) + "點").PadRight(110, '-') + "\r\n\r\n";
+                
                 foreach (var item in TodoList)
                 {
                     bool IsSameYear = item.Date.Year == monthCalendar.SelectionRange.Start.Date.Year;
@@ -124,7 +113,6 @@ namespace FinalProject
                     bool IsSameDay = item.Date.Day == monthCalendar.SelectionRange.Start.Date.Day;
                     if (IsSameYear && IsSameMonth && IsSameDay && item.Date.Hour == i)
                     {
-                        Console.WriteLine(true);
                         txtDay.Text += "     ";
                         txtDay.Text += item.Date.ToShortTimeString() + "  標題:" + item.Title + "  種類:" + item.Type + "  地點:" + item.Place + "  說明:" + item.Descripetion + "\r\n";
                     }
