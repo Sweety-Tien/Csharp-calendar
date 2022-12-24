@@ -88,46 +88,50 @@ namespace FinalProject
         public void Display()
         {
             checkBoxToDo.Items.Clear();
-            foreach(var item in TodoList)
+            foreach (var item in TodoList)
             {
-                checkBoxToDo.Items.Add(item.Title, false);
+                checkBoxToDo.Items.Add(item.Title+item.Date.ToShortTimeString(), false);
             }
             checkBoxToDo.Sorted = true;
             txtDay.Text = "";
-            for (int i = 1; i < 13; i++)
+
+            for (int i = 0; i < 24; i++)
             {
-                string str = "上午" + i + "點";
-                str = str.PadRight(110, '-');
-                txtDay.Text += str + "\r\n\r\n";
-                foreach (var item in TodoList)
+                if(i == 0)
                 {
-                    string[] Time = item.Date.ToShortTimeString().Split(' ');
-                    string[] Hour = Time[1].Split(':');
-                    if (item.Date == monthCalendar.SelectionRange.Start && Time[0] == "上午" && Hour[0] == i.ToString())
-                    {
-                        txtDay.Text += "     ";
-                        txtDay.Text += item.Date.ToShortTimeString() +"  標題:"+ item.Title + "  種類:" + item.Type + "  地點:" + item.Place + "  說明:" + item.Descripetion + "\r\n";
-                    }
+                    txtDay.Text += "上午12點".PadRight(110, '-')+ "\r\n\r\n";
                 }
-                txtDay.Text += "\r\n";
-            }
-            for (int i = 1; i < 13; i++)
-            {
-                string str = "下午" + i + "點";
-                str = str.PadRight(110, '-');
-                txtDay.Text += str + "\r\n\r\n";
+                else if(i > 0 && i < 12)
+                {
+                    string str = "上午" + i + "點";
+                    str = str.PadRight(110, '-');
+                    txtDay.Text += str + "\r\n\r\n";
+                }else if(i == 12)
+                {
+                    txtDay.Text += "下午12點".PadRight(110, '-') + "\r\n\r\n";
+                }
+                else if(i > 12)
+                {
+                    string str2 = "下午" + (i - 12) + "點";
+                    str2 = str2.PadRight(110, '-');
+                    txtDay.Text += str2 + "\r\n\r\n";
+                }
+
                 foreach (var item in TodoList)
                 {
-                    string[] Time = item.Date.ToShortTimeString().Split(' ');
-                    string[] Hour = Time[1].Split(':');
-                    if (item.Date == monthCalendar.SelectionRange.Start && Time[0] == "下午" && Hour[0] == i.ToString())
+                    bool IsSameYear = item.Date.Year == monthCalendar.SelectionRange.Start.Date.Year;
+                    bool IsSameMonth = item.Date.Month == monthCalendar.SelectionRange.Start.Date.Month;
+                    bool IsSameDay = item.Date.Day == monthCalendar.SelectionRange.Start.Date.Day;
+                    if (IsSameYear && IsSameMonth && IsSameDay && item.Date.Hour == i)
                     {
+                        Console.WriteLine(true);
                         txtDay.Text += "     ";
                         txtDay.Text += item.Date.ToShortTimeString() + "  標題:" + item.Title + "  種類:" + item.Type + "  地點:" + item.Place + "  說明:" + item.Descripetion + "\r\n";
                     }
                 }
                 txtDay.Text += "\r\n";
             }
+
         }
     }
 }
