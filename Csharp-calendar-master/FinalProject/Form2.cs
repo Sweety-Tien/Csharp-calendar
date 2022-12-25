@@ -24,6 +24,8 @@ namespace FinalProject
             dateTimePicker1.Value = DateTime.Today;
             btnColor();
             txtAdd.Text = "新增事項";
+            txtAddContent.Text = "無";
+            txtAddPlace.Text = "無";
             txtAdd.ForeColor = Color.LightGray;
             txtAddPlace.ForeColor = Color.LightGray;
             txtAddContent.ForeColor = Color.LightGray;
