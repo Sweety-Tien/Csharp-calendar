@@ -42,6 +42,7 @@
             this.btnAdd = new System.Windows.Forms.Button();
             this.tab = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.googleBtn = new System.Windows.Forms.Button();
             this.tabDay.SuspendLayout();
             this.tab.SuspendLayout();
             this.SuspendLayout();
@@ -59,6 +60,7 @@
             // tabDay
             // 
             this.tabDay.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("tabDay.BackgroundImage")));
+            this.tabDay.Controls.Add(this.googleBtn);
             this.tabDay.Controls.Add(this.deleteBtn);
             this.tabDay.Controls.Add(this.txtDay);
             this.tabDay.Controls.Add(this.btnRight);
@@ -202,17 +204,15 @@
             this.tabPage1.Text = "月計畫";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
-            // deleteBtn
+            // googleBtn
             // 
-            this.deleteBtn.Font = new System.Drawing.Font("微軟正黑體", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.deleteBtn.ForeColor = System.Drawing.SystemColors.MenuHighlight;
-            this.deleteBtn.Location = new System.Drawing.Point(26, 106);
-            this.deleteBtn.Name = "deleteBtn";
-            this.deleteBtn.Size = new System.Drawing.Size(283, 40);
-            this.deleteBtn.TabIndex = 62;
-            this.deleteBtn.Text = "-移除行程";
-            this.deleteBtn.UseVisualStyleBackColor = true;
-            this.deleteBtn.Click += new System.EventHandler(this.deleteBtn_Click);
+            this.googleBtn.Location = new System.Drawing.Point(876, 29);
+            this.googleBtn.Name = "googleBtn";
+            this.googleBtn.Size = new System.Drawing.Size(75, 23);
+            this.googleBtn.TabIndex = 63;
+            this.googleBtn.Text = "Google";
+            this.googleBtn.UseVisualStyleBackColor = true;
+            this.googleBtn.Click += new System.EventHandler(this.googleBtn_Click);
             // 
             // Calender
             // 
@@ -247,6 +247,7 @@
         private System.Windows.Forms.TabControl tab;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.Button deleteBtn;
+        private System.Windows.Forms.Button googleBtn;
     }
 }
 

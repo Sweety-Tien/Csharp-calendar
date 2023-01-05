@@ -11,6 +11,8 @@ using System.Windows.Forms;
 using System.Drawing.Drawing2D;
 using System.Text.Json;
 using System.Text.Json.Serialization;
+using Google.Apis.Calendar.v3;
+using Google.Apis.Services;
 
 namespace FinalProject
 {
@@ -31,7 +33,8 @@ namespace FinalProject
             if (File.Exists(DataPath))
             {
                 LoadData();
-            } else
+            }
+            else
             {
                 SaveData();
             }
@@ -152,7 +155,7 @@ namespace FinalProject
                 {
                     var label = MonthDayLabels[i * 7 + j];
                     label.Text = "";
-                    if ((i * 7 + j) > (int)(firstDay.DayOfWeek) &&
+                    if ((i * 7 + j) >= (int)(firstDay.DayOfWeek) &&
                         day <= DateTime.DaysInMonth(firstDay.Year, firstDay.Month))
                     {
                         label.Text = $"{day}\n";
@@ -210,6 +213,49 @@ namespace FinalProject
         private void tabMonth_Enter(object sender, EventArgs e)
         {
             showMonthCalender(monthCalendar.TodayDate);
+        }
+
+        private async void googleBtn_Click(object sender, EventArgs e)
+        {
+            const string ApiKey = "AIzaSyAoqcnW-UNRGZ3vi8BAgIyEp0lWYLuEavk";
+            const string CalenderId = "05b281aa0aa3d7da6a635306abf5cf419d866c81168efd774bbfc4695b7f1028@group.calendar.google.com";
+            var service = new CalendarService(new BaseClientService.Initializer()
+            {
+                ApiKey = ApiKey,
+                ApplicationName = "Csharp-Calender"
+            });
+
+            var request = service.Events.List(CalenderId);
+            request.Fields = "items(summary,start,end)";
+            var response = await request.ExecuteAsync();
+
+            foreach (var item in response.Items)
+            {
+                var newItem = new TodoItem(item.Summary, "", "", item.Start.DateTime ?? DateTime.Today, EventType.Activity);
+                bool duplicate = false;
+                for (int i = 0; i < TodoList.Count(); i++)
+                {
+                    var todo = TodoList[i];
+                    var itemDate = todo.Date;
+                    var newDate = newItem.Date;
+                    bool IsSameTitle = newItem.Title == todo.Title;
+                    bool IsSameYear = itemDate.Year == newDate.Date.Year;
+                    bool IsSameMonth = itemDate.Month == newDate.Date.Month;
+                    bool IsSameDay = itemDate.Day == newDate.Date.Day;
+
+                    if (IsSameTitle && IsSameYear && IsSameMonth && IsSameDay)
+                    {
+                        duplicate = true;
+                        break;
+                    }
+                }
+                if (!duplicate)
+                {
+                    TodoList.Add(newItem);
+                }
+            }
+
+
         }
     }
 }
