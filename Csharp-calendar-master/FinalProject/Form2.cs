@@ -93,7 +93,6 @@ namespace FinalProject
             {
                 var todoItem = new TodoItem(txtAdd.Text, txtAddPlace.Text, txtAddContent.Text, dateTimePicker1.Value, SelectedType);
                 Form1.AddItem(todoItem);
-                Form1.SaveData();
                 this.Close();
             }
         }

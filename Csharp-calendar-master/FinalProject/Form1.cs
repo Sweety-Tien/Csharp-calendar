@@ -18,6 +18,7 @@ namespace FinalProject
     {
         public List<TodoItem> TodoList;
         Form2 form2;
+        Label monthLabel;
         Label[] MonthDayLabels;
         string DataPath = "";
 
@@ -40,6 +41,13 @@ namespace FinalProject
         {
             labelDate.Text = monthCalendar.TodayDate.ToLongDateString();
             Display();
+
+            // Month Calender
+            monthLabel = new Label();
+            monthLabel.Font = new Font("Arial", 22, FontStyle.Bold);
+            monthLabel.SetBounds(15, 300, 100, 100);
+            tabMonth.Controls.Add(monthLabel);
+
             string[] weekday = new string[] { "Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat" };
             for (int i = 0; i < 7; i++)
             {
@@ -52,7 +60,19 @@ namespace FinalProject
                 label.BackColor = Color.AntiqueWhite;
                 tabMonth.Controls.Add(label);
             }
-            showMonthCalender(monthCalendar.TodayDate);
+
+            MonthDayLabels = new Label[35];
+            for (int i = 0; i < 5; i++)
+            {
+                for (int j = 0; j < 7; j++)
+                {
+                    var label = new Label();
+                    label.SetBounds(200 + j * 105, 80 + i * 105, 100, 100);
+                    label.BackColor = Color.AntiqueWhite;
+                    MonthDayLabels[i * 7 + j] = label;
+                    tabMonth.Controls.Add(label);
+                }
+            }
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
@@ -123,28 +143,33 @@ namespace FinalProject
         {
             DateTime firstDay = new DateTime(date.Year, date.Month, 1);
 
-            Label monthLabel = new Label();
             monthLabel.Text = firstDay.ToString("MMM");
-            monthLabel.Font = new Font("Arial", 22, FontStyle.Bold);
-            monthLabel.SetBounds(15, 300, 100, 100);
-            tabMonth.Controls.Add(monthLabel);
 
-            MonthDayLabels = new Label[35];
             int day = 1;
             for (int i = 0; i < 5; i++)
             {
                 for (int j = 0; j < 7; j++)
                 {
-                    var label = new Label();
+                    var label = MonthDayLabels[i * 7 + j];
+                    label.Text = "";
                     if ((i * 7 + j) > (int)(firstDay.DayOfWeek) &&
                         day <= DateTime.DaysInMonth(firstDay.Year, firstDay.Month))
                     {
-                        label.Text = $"{day++}";
+                        label.Text = $"{day}\n";
+                        var pickDate = new DateTime(date.Year, date.Month, day);
+                        foreach (var item in TodoList)
+                        {
+                            var itemDate = item.Date;
+                            bool IsSameYear = itemDate.Year == pickDate.Date.Year;
+                            bool IsSameMonth = itemDate.Month == pickDate.Date.Month;
+                            bool IsSameDay = itemDate.Day == pickDate.Date.Day;
+                            if (IsSameYear && IsSameMonth && IsSameDay)
+                            {
+                                label.Text += item.Title + "\n";
+                            }
+                        }
+                        day += 1;
                     }
-                    label.SetBounds(200 + j * 105, 80 + i * 105, 100, 100);
-                    label.BackColor = Color.AntiqueWhite;
-                    MonthDayLabels[i * 7 + j] = label;
-                    tabMonth.Controls.Add(label);
                 }
             }
         }
@@ -169,6 +194,22 @@ namespace FinalProject
         public void AddItem(TodoItem item)
         {
             TodoList.Add(item);
+            SaveData();
+        }
+        public void RemoveItem(TodoItem item)
+        {
+            TodoList.Remove(item);
+            SaveData();
+        }
+        private void deleteBtn_Click(object sender, EventArgs e)
+        {
+            RemoveScheduleForm form = new RemoveScheduleForm(this);
+            form.ShowDialog();
+        }
+
+        private void tabMonth_Enter(object sender, EventArgs e)
+        {
+            showMonthCalender(monthCalendar.TodayDate);
         }
     }
 }

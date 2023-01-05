@@ -31,6 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Calender));
             this.tabMonth = new System.Windows.Forms.TabPage();
             this.tabDay = new System.Windows.Forms.TabPage();
+            this.deleteBtn = new System.Windows.Forms.Button();
             this.txtDay = new System.Windows.Forms.TextBox();
             this.btnRight = new System.Windows.Forms.Button();
             this.btnLeft = new System.Windows.Forms.Button();
@@ -53,10 +54,12 @@
             this.tabMonth.Size = new System.Drawing.Size(982, 598);
             this.tabMonth.TabIndex = 0;
             this.tabMonth.Text = "月行事曆";
+            this.tabMonth.Enter += new System.EventHandler(this.tabMonth_Enter);
             // 
             // tabDay
             // 
             this.tabDay.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("tabDay.BackgroundImage")));
+            this.tabDay.Controls.Add(this.deleteBtn);
             this.tabDay.Controls.Add(this.txtDay);
             this.tabDay.Controls.Add(this.btnRight);
             this.tabDay.Controls.Add(this.btnLeft);
@@ -73,15 +76,27 @@
             this.tabDay.Text = "日行事曆";
             this.tabDay.UseVisualStyleBackColor = true;
             // 
+            // deleteBtn
+            // 
+            this.deleteBtn.Font = new System.Drawing.Font("微軟正黑體", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.deleteBtn.ForeColor = System.Drawing.SystemColors.MenuHighlight;
+            this.deleteBtn.Location = new System.Drawing.Point(26, 106);
+            this.deleteBtn.Name = "deleteBtn";
+            this.deleteBtn.Size = new System.Drawing.Size(283, 40);
+            this.deleteBtn.TabIndex = 62;
+            this.deleteBtn.Text = "-移除行程";
+            this.deleteBtn.UseVisualStyleBackColor = true;
+            this.deleteBtn.Click += new System.EventHandler(this.deleteBtn_Click);
+            // 
             // txtDay
             // 
             this.txtDay.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.txtDay.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
-            this.txtDay.Location = new System.Drawing.Point(342, 78);
+            this.txtDay.Location = new System.Drawing.Point(338, 78);
             this.txtDay.Multiline = true;
             this.txtDay.Name = "txtDay";
             this.txtDay.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtDay.Size = new System.Drawing.Size(609, 493);
+            this.txtDay.Size = new System.Drawing.Size(613, 493);
             this.txtDay.TabIndex = 61;
             this.txtDay.Text = resources.GetString("txtDay.Text");
             // 
@@ -133,7 +148,7 @@
             this.labelToDo.AutoSize = true;
             this.labelToDo.BackColor = System.Drawing.SystemColors.Menu;
             this.labelToDo.Font = new System.Drawing.Font("新細明體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.labelToDo.Location = new System.Drawing.Point(22, 368);
+            this.labelToDo.Location = new System.Drawing.Point(22, 376);
             this.labelToDo.Name = "labelToDo";
             this.labelToDo.Size = new System.Drawing.Size(93, 20);
             this.labelToDo.TabIndex = 56;
@@ -149,9 +164,9 @@
             "3.",
             "4.",
             "5."});
-            this.checkBoxToDo.Location = new System.Drawing.Point(26, 399);
+            this.checkBoxToDo.Location = new System.Drawing.Point(26, 407);
             this.checkBoxToDo.Name = "checkBoxToDo";
-            this.checkBoxToDo.Size = new System.Drawing.Size(220, 164);
+            this.checkBoxToDo.Size = new System.Drawing.Size(283, 164);
             this.checkBoxToDo.TabIndex = 55;
             // 
             // btnAdd
@@ -160,7 +175,7 @@
             this.btnAdd.ForeColor = System.Drawing.SystemColors.MenuHighlight;
             this.btnAdd.Location = new System.Drawing.Point(26, 19);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(199, 81);
+            this.btnAdd.Size = new System.Drawing.Size(283, 81);
             this.btnAdd.TabIndex = 54;
             this.btnAdd.Text = "+加入行程";
             this.btnAdd.UseVisualStyleBackColor = true;
@@ -219,6 +234,7 @@
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.TabControl tab;
         private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.Button deleteBtn;
     }
 }
 
