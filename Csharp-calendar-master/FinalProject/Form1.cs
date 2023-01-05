@@ -254,8 +254,7 @@ namespace FinalProject
                     TodoList.Add(newItem);
                 }
             }
-
-
+            Display();
         }
     }
 }
