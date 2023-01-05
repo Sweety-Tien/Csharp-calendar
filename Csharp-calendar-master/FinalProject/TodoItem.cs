@@ -17,11 +17,13 @@ namespace FinalProject
     }
     public class TodoItem
     {
-        public string Title;
-        public string Place;
-        public string Descripetion;
-        public DateTime Date;
-        public EventType Type;
+        public string Title { get; set; }
+        public string Place { get; set; }
+        public string Descripetion { get; set; }
+        public DateTime Date { get; set; }
+        public EventType Type { get; set; }
+
+        public TodoItem() { }
 
         public TodoItem(string title,string place, string description, DateTime date, EventType eventType)
         {

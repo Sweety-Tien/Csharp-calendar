@@ -12,12 +12,12 @@ namespace FinalProject
 {
     public partial class Form2 : Form
     {
-        public List<TodoItem> TodoList;
+        public Calender Form1;
         private EventType SelectedType;
-        public Form2(List<TodoItem> todoList)
+        public Form2(Calender f1)
         {
             InitializeComponent();
-            TodoList = todoList;
+            Form1 = f1;
         }
         private void Form2_Load(object sender, EventArgs e)
         {
@@ -92,7 +92,8 @@ namespace FinalProject
             else
             {
                 var todoItem = new TodoItem(txtAdd.Text, txtAddPlace.Text, txtAddContent.Text, dateTimePicker1.Value, SelectedType);
-                TodoList.Add(todoItem);
+                Form1.AddItem(todoItem);
+                Form1.SaveData();
                 this.Close();
             }
         }

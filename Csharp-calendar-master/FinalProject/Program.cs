@@ -16,7 +16,7 @@ namespace FinalProject
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new 行事曆());
+            Application.Run(new Calender());
         }
     }
 }

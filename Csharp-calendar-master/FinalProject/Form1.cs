@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -8,59 +9,55 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Drawing.Drawing2D;
+using System.Text.Json;
+using System.Text.Json.Serialization;
 
 namespace FinalProject
 {
-    public partial class 行事曆 : Form
+    public partial class Calender : Form
     {
         public List<TodoItem> TodoList;
-        Form2 f2;
+        Form2 form2;
+        Label[] MonthDayLabels;
+        string DataPath = "";
 
-        public 行事曆()
+        public Calender()
         {
             InitializeComponent();
             TodoList = new List<TodoItem>();
-            f2 = new Form2(TodoList);
+            form2 = new Form2(this);
+            DataPath = Application.StartupPath + Path.AltDirectorySeparatorChar + "data.json";
+            if (File.Exists(DataPath))
+            {
+                LoadData();
+            } else
+            {
+                SaveData();
+            }
         }
 
-
-        private void vScrollBar1_Scroll(object sender, ScrollEventArgs e)
-        {
-
-        }
-
-        private void 行事曆_Load(object sender, EventArgs e)
+        private void Calender_Load(object sender, EventArgs e)
         {
             labelDate.Text = monthCalendar.TodayDate.ToLongDateString();
             Display();
-        }
-
-
-
-        private void tabMonth_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void tab_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (tab.SelectedIndex == 0)
+            string[] weekday = new string[] { "Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat" };
+            for (int i = 0; i < 7; i++)
             {
-
-
+                var label = new Label();
+                label.AutoSize = false;
+                label.TextAlign = ContentAlignment.MiddleCenter;
+                label.Text = weekday[i];
+                label.Font = new Font("Arial", 12, FontStyle.Bold);
+                label.SetBounds(200 + i * 105, 30, 100, 40);
+                label.BackColor = Color.AntiqueWhite;
+                tabMonth.Controls.Add(label);
             }
-
-            if (tab.SelectedIndex == 1)
-            {
-
-            }
-
-
+            showMonthCalender(monthCalendar.TodayDate);
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            f2.ShowDialog();
+            form2.ShowDialog();
             Display();
         }
 
@@ -85,27 +82,28 @@ namespace FinalProject
             labelDate.Text = monthCalendar.SelectionStart.ToLongDateString();
             Display();
         }
+
         public void Display()
         {
             checkBoxToDo.Items.Clear();
             foreach (var item in TodoList)
             {
-                checkBoxToDo.Items.Add(item.Title+item.Date.ToShortDateString(), false);
+                checkBoxToDo.Items.Add(item.Title + item.Date.ToShortDateString(), false);
             }
             checkBoxToDo.Sorted = true;
             txtDay.Text = "";
 
             for (int i = 0; i < 24; i++)
             {
-                if(i == 0)
-                    txtDay.Text += "上午12點".PadRight(110, '-')+ "\r\n\r\n";                
-                else if(i > 0 && i < 12)
+                if (i == 0)
+                    txtDay.Text += "上午12點".PadRight(110, '-') + "\r\n\r\n";
+                else if (i > 0 && i < 12)
                     txtDay.Text += ("上午" + i + "點").PadRight(110, '-') + "\r\n\r\n";
-                else if(i == 12)
-                    txtDay.Text += "下午12點".PadRight(110, '-') + "\r\n\r\n";               
-                else if(i > 12)
+                else if (i == 12)
+                    txtDay.Text += "下午12點".PadRight(110, '-') + "\r\n\r\n";
+                else if (i > 12)
                     txtDay.Text += ("下午" + (i - 12) + "點").PadRight(110, '-') + "\r\n\r\n";
-                
+
                 foreach (var item in TodoList)
                 {
                     bool IsSameYear = item.Date.Year == monthCalendar.SelectionRange.Start.Date.Year;
@@ -119,7 +117,58 @@ namespace FinalProject
                 }
                 txtDay.Text += "\r\n";
             }
+        }
 
+        private void showMonthCalender(DateTime date)
+        {
+            DateTime firstDay = new DateTime(date.Year, date.Month, 1);
+
+            Label monthLabel = new Label();
+            monthLabel.Text = firstDay.ToString("MMM");
+            monthLabel.Font = new Font("Arial", 22, FontStyle.Bold);
+            monthLabel.SetBounds(15, 300, 100, 100);
+            tabMonth.Controls.Add(monthLabel);
+
+            MonthDayLabels = new Label[35];
+            int day = 1;
+            for (int i = 0; i < 5; i++)
+            {
+                for (int j = 0; j < 7; j++)
+                {
+                    var label = new Label();
+                    if ((i * 7 + j) > (int)(firstDay.DayOfWeek) &&
+                        day <= DateTime.DaysInMonth(firstDay.Year, firstDay.Month))
+                    {
+                        label.Text = $"{day++}";
+                    }
+                    label.SetBounds(200 + j * 105, 80 + i * 105, 100, 100);
+                    label.BackColor = Color.AntiqueWhite;
+                    MonthDayLabels[i * 7 + j] = label;
+                    tabMonth.Controls.Add(label);
+                }
+            }
+        }
+
+        public void SaveData()
+        {
+            string json = JsonSerializer.Serialize<List<TodoItem>>(TodoList);
+            var writer = new StreamWriter(DataPath);
+            writer.Write(json);
+            writer.Flush();
+            writer.Close();
+        }
+
+        public void LoadData()
+        {
+            StreamReader reader = new StreamReader(DataPath);
+            string json = reader.ReadToEnd();
+            TodoList = JsonSerializer.Deserialize<List<TodoItem>>(json);
+            reader.Close();
+        }
+
+        public void AddItem(TodoItem item)
+        {
+            TodoList.Add(item);
         }
     }
 }
