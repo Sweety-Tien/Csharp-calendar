@@ -42,6 +42,7 @@
             this.btnAdd = new System.Windows.Forms.Button();
             this.tab = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.deleteBtn = new System.Windows.Forms.Button();
             this.tabDay.SuspendLayout();
             this.tab.SuspendLayout();
             this.SuspendLayout();
@@ -201,6 +202,18 @@
             this.tabPage1.TabIndex = 2;
             this.tabPage1.Text = "月計畫";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // deleteBtn
+            // 
+            this.deleteBtn.Font = new System.Drawing.Font("微軟正黑體", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.deleteBtn.ForeColor = System.Drawing.SystemColors.MenuHighlight;
+            this.deleteBtn.Location = new System.Drawing.Point(26, 106);
+            this.deleteBtn.Name = "deleteBtn";
+            this.deleteBtn.Size = new System.Drawing.Size(283, 40);
+            this.deleteBtn.TabIndex = 62;
+            this.deleteBtn.Text = "-移除行程";
+            this.deleteBtn.UseVisualStyleBackColor = true;
+            this.deleteBtn.Click += new System.EventHandler(this.deleteBtn_Click);
             // 
             // Calender
             // 
