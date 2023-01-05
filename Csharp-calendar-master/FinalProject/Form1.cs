@@ -169,6 +169,17 @@ namespace FinalProject
         public void AddItem(TodoItem item)
         {
             TodoList.Add(item);
+            SaveData();
+        }
+        public void RemoveItem(TodoItem item)
+        {
+            TodoList.Remove(item);
+            SaveData();
+        }
+        private void deleteBtn_Click(object sender, EventArgs e)
+        {
+            RemoveScheduleForm form = new RemoveScheduleForm(this);
+            form.ShowDialog();
         }
     }
 }
