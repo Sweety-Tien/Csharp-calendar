@@ -42,7 +42,6 @@
             this.btnAdd = new System.Windows.Forms.Button();
             this.tab = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.deleteBtn = new System.Windows.Forms.Button();
             this.tabDay.SuspendLayout();
             this.tab.SuspendLayout();
             this.SuspendLayout();
