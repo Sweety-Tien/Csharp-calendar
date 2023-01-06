@@ -320,7 +320,6 @@ namespace FinalProject
 
         private void monthCalendar_DateChanged(object sender, DateRangeEventArgs e)
         {
-
         }
     }
 }
