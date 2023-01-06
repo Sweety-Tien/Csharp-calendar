@@ -123,6 +123,7 @@
       <DependentUpon>RemoveScheduleForm.cs</DependentUpon>
     </Compile>
     <Compile Include="TodoItem.cs" />
+    <Compile Include="WeekPlanItem.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>

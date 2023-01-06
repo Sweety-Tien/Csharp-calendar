@@ -19,13 +19,16 @@ namespace FinalProject
     public partial class Calender : Form
     {
         public List<TodoItem> TodoList;
+        public List<WeekPlanItem> weekPlanList;
         Form2 form2;
+        Form3 f3;
         Label monthLabel;
         Label[] MonthDayLabels;
         string DataPath = "";
-
         public Calender()
         {
+            weekPlanList = new List<WeekPlanItem>();
+            f3 = new Form3(weekPlanList);
             InitializeComponent();
             TodoList = new List<TodoItem>();
             form2 = new Form2(this);
@@ -255,6 +258,64 @@ namespace FinalProject
                 }
             }
             Display();
+        }
+
+        private void btnDeleteWeek_Click(object sender, EventArgs e)
+        {
+            f3.select = 2;
+            f3.ShowDialog();
+            WeekPlanDisplay();
+        }
+
+        private void btnAddWeek_Click(object sender, EventArgs e)
+        {
+            f3.select = 1;
+            f3.ShowDialog();
+            WeekPlanDisplay();
+        }
+        public void WeekPlanDisplay()
+        {
+            checkBoxMon.Items.Clear();
+            checkBoxTue.Items.Clear();
+            checkBoxWed.Items.Clear();
+            checkBoxThur.Items.Clear();
+            checkBoxFri.Items.Clear();
+            checkBoxSat.Items.Clear();
+            checkBoxSun.Items.Clear();
+
+            foreach (var item in weekPlanList)
+            {
+
+                switch (item.Week)
+                {
+                    case WeekOfDay.mon:
+                        checkBoxMon.Items.Add(item.Task, false);
+                        break;
+                    case WeekOfDay.tue:
+                        checkBoxTue.Items.Add(item.Task, false);
+                        break;
+                    case WeekOfDay.wed:
+                        checkBoxWed.Items.Add(item.Task, false);
+                        break;
+                    case WeekOfDay.thur:
+                        checkBoxThur.Items.Add(item.Task, false);
+                        break;
+                    case WeekOfDay.fri:
+                        checkBoxFri.Items.Add(item.Task, false);
+                        break;
+                    case WeekOfDay.sat:
+                        checkBoxSat.Items.Add(item.Task, false);
+                        break;
+                    case WeekOfDay.sun:
+                        checkBoxSun.Items.Add(item.Task, false);
+                        break;
+
+                }
+            }
+        }
+        private void btnAddWeek_Click_1(object sender, EventArgs e)
+        {
+            
         }
     }
 }
