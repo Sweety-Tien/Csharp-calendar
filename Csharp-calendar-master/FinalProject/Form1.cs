@@ -215,7 +215,7 @@ namespace FinalProject
 
         private void tabMonth_Enter(object sender, EventArgs e)
         {
-            showMonthCalender(monthCalendar.TodayDate);
+            showMonthCalender(monthCalendar.SelectionStart);
         }
 
         private async void googleBtn_Click(object sender, EventArgs e)
