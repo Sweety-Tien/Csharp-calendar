@@ -173,6 +173,7 @@
             this.monthCalendar.TabIndex = 57;
             this.monthCalendar.TitleBackColor = System.Drawing.SystemColors.MenuHighlight;
             this.monthCalendar.TrailingForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.monthCalendar.DateChanged += new System.Windows.Forms.DateRangeEventHandler(this.monthCalendar_DateChanged);
             this.monthCalendar.DateSelected += new System.Windows.Forms.DateRangeEventHandler(this.monthCalendar_DateSelected);
             // 
             // labelToDo
